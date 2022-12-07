@@ -25,6 +25,7 @@ Pracownik:
 * tworzenie zamówienia (przy kasie)
 
 Administrator:
+
 pełny dostęp do bazy danych, m.in.:
 * aktualizowanie listy produktów
 * edycja listy pracowników
