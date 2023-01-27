@@ -1,7 +1,7 @@
 # restaurant-database
 AGH UST databases course project
 
-### Project content
+# Project content
 * [functionality](functionality.md)
 * [tables](tables.md)
 * [views](views.md)
@@ -11,5 +11,10 @@ AGH UST databases course project
 * [indexes](index.md)
 * [roles](roles.md)
 
-### Database schema
+# Database schema
 <img src="schemat.jpg">
+
+# Authors
+* Dawid Justyna
+* Kacper Kozik
+* Michał Kobiera
