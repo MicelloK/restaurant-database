@@ -98,3 +98,21 @@ Podstawowe funkcjonalności systemu:
 * automatyczne aktualizowanie dostępności stolików
 
     *system automatycznie sprawdza i aktualizuje listę wolnych stolików*
+
+## Specyfikacje
+
+* Conajmniej połowa produktów w menu musi być wymieniana co dwa tygodnie. Sprawdzane jest przy dodawaniu nowych produktów do Menu, czy w każdym dniu trwania nowego menu, spełniona będzie ta zasada
+
+* Aktualne może być maksymalnie 1 menu
+
+* Rachunek może zostać wygenerowany, pod warunkiem, że została wcześniej uregulowana płatność. Nadpłaty traktowane są jako "napiwek"
+
+* Po wykonaniu 10 zamówień przez klienta, przypisywana jest zniżka do klienta o wartości 5% naliczana zawsze przy składaniu zamówienia
+
+* Po wykonaniu łącznej liczby zamówień za ponad 1000 zł, przypisywana jest jednorazowa zniżka dla klienta na 7 dni od momentu złożenia zamówienia. Może być przypisana więcej niż jedna zniżka
+
+* Zniżki nie łączą się. Pierwszeństwo ma zniżka jednorazowa
+
+* Można usunąć klienta z bazy danych, jednak jego zamówienia i płatności pozostaną w bazie. Usunięte zostaną jedynie informację o danych osobowych klienta
+
+* Można przedłużyć rezerwację pod warunkiem, że każdy stolik z rezerwacji będzie dostępny do nowego czasu zakończenia rezerwacji

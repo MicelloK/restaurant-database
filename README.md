@@ -13,8 +13,10 @@ AGH UST databases course project
 
 # Database schema
 <img src="schemat.jpg">
+desc language -> Polish
+<br><br/>
 
 # Authors
-* Dawid Justyna
-* Kacper Kozik
-* Michał Kobiera
+* [Dawid Justyna](https://github.com/dawjus)
+* [Kacper Kozik](https://github.com/Kacper0199)
+* [Michał Kobiera](https://github.com/MicelloK)

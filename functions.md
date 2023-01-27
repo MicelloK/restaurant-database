@@ -70,7 +70,7 @@ BEGIN
 END
 ```
 
-### Sprawdzanie menu na konkretny dzień
+### 4. Sprawdzanie menu na konkretny dzień
 ```sql
 CREATE FUNCTION MenuForADay(@day DATE)
     RETURNS TABLE
@@ -118,7 +118,7 @@ BEGIN
 END
 ```
 
-### Suma płatności za zamówienie
+### 6. Suma płatności za zamówienie
 ```sql
 CREATE FUNCTION PaymentsSum(@orderID INT)
     RETURNS SMALLMONEY
@@ -132,3 +132,58 @@ BEGIN
 END
 ```
 
+### 7. Funkcja sprawdzająca czy produkt jest owocem morza
+```sql
+CREATE FUNCTION SeaFood(@ProductID INT)
+RETURNS INT
+AS
+BEGIN
+    DECLARE @CategoryID INT
+    SET @CategoryID = (SELECT CategoryID FROM Products WHERE @productID=ProductID)
+    IF (SELECT Count(Categories.description) FROM Categories
+        JOIN Products P ON Categories.CategoryID = P.CategoryID
+    WHERE ProductID = @ProductID AND Categories.Description='Seafood') > 0
+        BEGIN
+        RETURN 1
+        END
+    RETURN 0
+END
+```
+
+### 8. Funkcja sprawdzająca czy można dodać owoc morza do danego zamówienia
+```sql
+CREATE FUNCTION EarlyOrderSeaFood(@OrderID INT)
+RETURNS INT
+AS
+BEGIN
+    DECLARE @DateDelivery DATETIME;
+    IF (SELECT count(OrderID) FROM Orders WHERE @OrderID=OrderID) = 0
+        BEGIN
+           RETURN 0
+        END
+    SET  @DateDelivery = (SELECT DeliveryDate FROM Orders WHERE @OrderID=OrderID)
+
+    IF (DATEPART(dw,  @DateDelivery) = 5)
+           BEGIN
+               IF GETDATE() < DATEADD(DAY, -5,   @DateDelivery)
+            BEGIN
+                RETURN 1
+            END
+           END
+    ELSE IF (DATEPART(dw, @DateDelivery) = 6)
+           BEGIN
+               IF GETDATE() < DATEADD(DAY, -6,   @DateDelivery)
+            BEGIN
+                RETURN 1
+            END
+           END
+    ELSE IF DATEPART(dw, @DateDelivery) = 7
+           BEGIN
+               IF GETDATE() < DATEADD(DAY, -7,  @DateDelivery)
+            BEGIN
+                RETURN 1
+            END
+           END
+    RETURN 0
+END
+```
